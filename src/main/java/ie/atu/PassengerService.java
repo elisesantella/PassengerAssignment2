@@ -25,6 +25,11 @@ public class PassengerService {
         return myPassenger;
     }
 
+    public void savePassenger(Passenger passenger)
+    {
+        PassengerRepo.save(passenger);
+
+    }
 
 
 

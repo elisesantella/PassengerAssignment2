@@ -28,5 +28,12 @@ public class PassengerController {
         return myService.getPassenger(PassengerID);
     }
 
+    //Save Operation
+    @PostMapping("")
+    public void savePassenger(
+            @RequestBody Passenger passenger)
+    {
+        myService.savePassenger(passenger);
+    }
 
 }
