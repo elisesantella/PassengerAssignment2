@@ -1,92 +1,98 @@
 package ie.atu;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import javax.persistence.*;
+
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter
 @Setter
-@NoArgsConstructor
+@Entity
+@Table
+
 public class Passenger {
 
-    //Declare variables - set as private so that they can on;y be used within Passenger class
     private String title;
     private String name;
-    private String id;
+    private String iD;
     private String phone;
     private int age;
 
-    /*Setting up a constructor that will initialise all the variables to the user input as it runs through the code*/
-    /*Changed method to include all variables because we want the user to be prompt to enter all information
-    at once not individually using different methods*/
-    public Passenger(String titleName, String nameSize, String idNum, String phoneNum, int minAge){
-        //Check that Title is either Mr, Mrs or Ms otherwise throw error message
-        if(titleName == "Mr" || titleName == "Mrs" || titleName == "Ms"){
-            this.title = titleName;
-        }
-        else{
-            throw new IllegalArgumentException("Title invalid. MUST be either Mr, Mrs or Ms");
-        }
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long count;
 
-        //Check that Name is at least 3 characters long otherwise throw error message
-        if(nameSize.length() >= 3){
-            this.name = nameSize;
-        }
-        else{
-            throw new IllegalArgumentException("Name MUST be a minimum of 3 characters");
-        }
-
-        //Check that ID is at least 10 characters long otherwise throw error message
-        if(idNum.length() >= 10){
-            this.id = idNum;
-        }
-        else{
-            throw new IllegalArgumentException("ID MUST be a minimum of 10 characters");
-        }
-
-        //Check that Phone number is at least 7 characters long otherwise throw error message
-        if(phoneNum.length() >= 7){
-            this.phone = phoneNum;
-        }
-        else{
-            throw new IllegalArgumentException("Phone number MUST be a minimum of 7 characters");
-        }
-
-        //Check that Age is over 16 otherwise throw error message
-        if(minAge > 16){
-            this.age = minAge;
-        }
-        else{
-            throw new IllegalArgumentException("Passenger is too young to fly. MUST be over 16");
-        }
-
+    public Passenger(String title, String name, String iD, String phone, int age){
+        setTitle(title);
+        setName(name);
+        setiD(iD);
+        setPhone(phone);
+        setAge(age);
     }
 
-    //Setting up getter methods that will get the user input for each variable
-    //Getter method that will return age from Passenger
-    //Getter method that will return title from Passenger
-    public String getTitle(){
+    //returns title from Passenger
+    public String getTitle() {
         return title;
     }
-
-    //Getter method that will return name from Passenger
+    //returns name from passenger
     public String getName(){
         return name;
     }
-
-    //Getter method that will return ID from Passenger
-    public String getID(){
-        return id;
+    //returns ID from passenger
+    public String getiD(){
+        return iD;
     }
-
-    //Getter method that will return phone number from Passenger
-    public String getPhone(){
+    //returns phone from passenger
+    public String getPhone() {
         return phone;
     }
-
-    //Getter method that will return age from Passenger
-    public int getAge(){
+    public int getAge() {
         return age;
+    }
+
+    public void setTitle(String title){
+        if(title.equals("Mr") || title.equals("Mrs") || title.equals("Ms")){
+            this.title = title;
+        }
+        else{
+            throw new IllegalArgumentException("Error, Invalid Title! Options: Mr, Mrs, Ms");
+        }
+    }
+
+    public void setName(String name){
+        if(name.length()>3){
+            this.name = name;
+        }
+        else{
+            throw new IllegalArgumentException("This is not a valid name");
+        }
+    }
+
+    public void setiD(String iD){
+        if(iD.length()>10){
+            this.iD=iD;
+        }
+        else{
+            throw new IllegalArgumentException("This is not a valid ID");
+        }
+    }
+
+    public void setPhone(String phone){
+        if(phone.length()>7){
+            this.phone=phone;
+        }
+        else{
+            throw new IllegalArgumentException("This is not a valid phone number");
+        }
+    }
+
+    public void setAge(int age){
+        if(age>16){
+            this.age=age;
+        }
+        else{
+            throw new IllegalArgumentException("This is not a valid age");
+        }
     }
 }

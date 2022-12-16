@@ -56,7 +56,7 @@ class PassengerTest {
     @Test
     void testPassengerIdSuccess(){
         Passenger newPassenger = new Passenger("Mr","elise", "G003871700", "0830152926", 23);
-        assertEquals("G003871700", newPassenger.getID());
+        assertEquals("G003871700", newPassenger.getiD());
     }
 
     //Test if Passenger ID is under 10 characters and will look for Illegal Argument Exception within Passenger class

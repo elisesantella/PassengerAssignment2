@@ -15,28 +15,7 @@ import java.util.List;
 @RequestMapping(path="api/Passenger")
 public class PassengerApplication {
 
-	PassengerService myService;
-
-	@Autowired
-	public PassengerApplication(PassengerService myService) {
-		this.myService = myService;
-	}
-
-
 	public static void main(String[] args) {
 		SpringApplication.run(PassengerApplication.class, args);
 	}
-
-	@GetMapping
-	public List<Passenger> getPassenger()
-	{
-		return myService.getPassenger();
-	}
-
-	@GetMapping("/{PassengerID}")
-	public Passenger getPassenger(@PathVariable String PassengerID)
-	{
-		return myService.getPassenger(PassengerID);
-	}
-
 }
