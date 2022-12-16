@@ -31,6 +31,8 @@ public class PassengerService {
 
     }
 
-
+    public Passenger findPassengerByName(String name){
+        return PassengerRepo.findPassengerByName(name);
+    }
 
 }
