@@ -35,4 +35,10 @@ public class PassengerService {
         return PassengerRepo.findPassengerByName(name);
     }
 
+
+    public void deletePassenger(Long count)
+    {
+        PassengerRepo.deleteById(count);
+    }
+
 }
