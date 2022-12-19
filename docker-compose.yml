@@ -1,0 +1,15 @@
+
+  server:
+    image: elisesantella/passenger2
+    ports:
+      - "8080:8081"
+    environment:
+      - spring.datasource.url=jdbc:postgresql://db:5432/atu
+    networks:
+      - db
+    depends_on:
+      - db
+
+
+networks:
+  db:

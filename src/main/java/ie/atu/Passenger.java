@@ -56,43 +56,43 @@ public class Passenger {
             this.title = title;
         }
         else{
-            throw new IllegalArgumentException("Error, Invalid Title! Options: Mr, Mrs, Ms");
+            throw new IllegalArgumentException("Title invalid. MUST be either Mr, Mrs or Ms");
         }
     }
 
     public void setName(String name){
-        if(name.length()>3){
+        if(name.length()>=3){
             this.name = name;
         }
         else{
-            throw new IllegalArgumentException("This is not a valid name");
+            throw new IllegalArgumentException("Name MUST be a minimum of 3 characters");
         }
     }
 
     public void setiD(String iD){
-        if(iD.length()>10){
+        if(iD.length()>=10){
             this.iD=iD;
         }
         else{
-            throw new IllegalArgumentException("This is not a valid ID");
+            throw new IllegalArgumentException("ID MUST be a minimum of 10 characters");
         }
     }
 
     public void setPhone(String phone){
-        if(phone.length()>7){
+        if(phone.length()>=7){
             this.phone=phone;
         }
         else{
-            throw new IllegalArgumentException("This is not a valid phone number");
+            throw new IllegalArgumentException("Phone number MUST be a minimum of 7 characters");
         }
     }
 
     public void setAge(int age){
-        if(age>16){
+        if(age>=16){
             this.age=age;
         }
         else{
-            throw new IllegalArgumentException("This is not a valid age");
+            throw new IllegalArgumentException("Passenger is too young to fly. MUST be over 16");
         }
     }
 }
