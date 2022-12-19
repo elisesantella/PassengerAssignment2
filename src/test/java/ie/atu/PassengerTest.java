@@ -35,7 +35,7 @@ class PassengerTest {
     @Test
     void testPassengerTitleFail(){
         Exception exMessage = assertThrows(IllegalArgumentException.class, () -> {new Passenger("Mister","elise", "G003871700", "0830152926", 23);});
-        assertEquals("Title invalid. MUST be either Mr, Mrs or Ms", exMessage.getMessage());
+        assertEquals("Title Invalid. MUST be either Mr, Mrs or Ms", exMessage.getMessage());
     }
 
     //Test if Passenger name is at least 3 characters and matches the expected name within the test
