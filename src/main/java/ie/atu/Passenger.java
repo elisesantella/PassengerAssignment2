@@ -31,7 +31,7 @@ public class Passenger {
         setAge(age);
     }
 
-    //returns title from Passenger method
+    //returns title from Passenger method for user to input
     public String getTitle() {
         return title;
     }
