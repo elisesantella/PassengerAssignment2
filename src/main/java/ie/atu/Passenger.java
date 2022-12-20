@@ -65,7 +65,7 @@ public class Passenger {
             this.name = name;
         }
         else{
-            throw new IllegalArgumentException("Name MUST be a minimum of 3 characters");
+            throw new IllegalArgumentException("Name must be a minimum of 3 characters");
         }
     }
 
