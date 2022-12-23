@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  dbpassenger:
+    image: elisesantella/passenger2assignment:1.0
+    ports:
+      - "8080:8081"
+    environment:
+      - spring.datasource.url=jdbc:postgresql://dbpassenger:5432/atu
+    networks:
+      - dbpassenger
+    depends_on:
+      - dbpassenger
+
+networks:
+  db:
